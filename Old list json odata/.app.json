@@ -8,9 +8,66 @@
       "title": "Home View",
       "addToNavigation": true,
       "icon": "home"
+    },
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "dataListView",
+      "components": [
+        {
+          "type": "kendo-ui-mobile:list",
+          "name": "dataListViewModel",
+          "dataProvider": "jsonDataProvider",
+          "collection": "query.diagnostics.url",
+          "iconField": true,
+          "headerField": "content",
+          "masterDetails": false,
+          "pullToRefresh": false,
+          "endlessScroll": false
+        }
+      ],
+      "title": "Data List",
+      "addToNavigation": true,
+      "icon": "organize"
+    },
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "dataListView1",
+      "components": [
+        {
+          "type": "kendo-ui-mobile:list",
+          "name": "dataListView1Model",
+          "dataProvider": "odataDataProvider",
+          "collection": "odata",
+          "headerField": "ProductName",
+          "masterDetails": true,
+          "detailHeaderField": "ProductName",
+          "detailSubHeaderField": "QuantityPerUnit",
+          "detailDescriptionField": "UnitPrice",
+          "pullToRefresh": false,
+          "endlessScroll": false
+        }
+      ],
+      "title": "Data List",
+      "addToNavigation": true,
+      "icon": "organize"
     }
   ],
-  "dataProviders": [],
+  "dataProviders": [
+    {
+      "type": "kendo-ui-mobile:dataProvider",
+      "name": "jsonDataProvider",
+      "title": "JSON Data Service",
+      "source": "json",
+      "url": "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22BHP.AX%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
+    },
+    {
+      "type": "kendo-ui-mobile:dataProvider",
+      "name": "odataDataProvider",
+      "title": "ODATA Data Service",
+      "source": "odata",
+      "url": "http://services.odata.org/V2/Northwind/Northwind.svc/Products"
+    }
+  ],
   "name": "kendoUiMobileApp",
   "navigation": "tabstrip",
   "view": "home",

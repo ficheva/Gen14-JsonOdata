@@ -11,9 +11,13 @@
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.mobile.min.js"></script>
     <script src="app.js"></script>
+    <script src="dataProviders/jsonDataProvider.js"></script>
+    <script src="dataProviders/odataDataProvider.js"></script>
 </head>
 
 <body id="kendoUiMobileApp">
+    <script src="components/dataListView1/index.js"></script>
+    <script src="components/dataListView/index.js"></script>
     <script src="components/home/index.js"></script>
     <div data-role="layout" data-id="main">
         <header data-role="header">
@@ -27,6 +31,8 @@
         <footer data-role="footer">
             <div data-role="tabstrip" id="navigation-container">
                 <a href="components/home/view.html" data-icon="home">Home View</a>
+                <a href="components/dataListView/view.html" data-icon="organize">Data List</a>
+                <a href="components/dataListView1/view.html" data-icon="organize">Data List</a>
             </div>
         </footer>
     </div>
